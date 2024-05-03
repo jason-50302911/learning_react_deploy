@@ -1,13 +1,273 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 20px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: #efefef;
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 800px;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #333;
+  box-shadow: 0px 0px 15px rgb(86, 86, 86);
+}
+
+.Header, Footer {
+  width: 100%;
+  background-color: #66d8f5;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header h1 {
+  font-size: 3rem;
+}
+
+.Header svg {
+  font-size: 2rem;
+}
+
+.Footer {
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+
+.Nav {
+  background-color: hsl(0, 1%, 17%);
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; 
+}
+
+.searchForm {
+  width: 100%;
+}
+
+.searchForm label{
+  position: absolute;
+  left: -99999px;
+}
+
+.searchForm input[type="text"]{
+  width: 90%;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-left: 0.5rem; 
+  outline: none;
+}
+
+.Nav ul {
+  width: 100%;
+  height: 3.5rem;
+  list-style-type: none;
+  display: flex;
+  font-size: 1.5rem;
+  flex-wrap: nowrap;
+}
+
+.Nav li { 
+  padding: 0;
+  flex-grow: 1;
+}
+
+.Nav li a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+.Nav li:hover,
+.Nav li:focus,
+.Nav li:hover a,
+.Nav li:focus a {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.Home, .NewPost, .PostPage, .About, .Missing{
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.Home .post a{
+  text-decoration: none;
+  color: black;
+}
+
+.Home .noPost{ 
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+.post {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-top: 2px solid lightgray;
+}
+
+.post h2{
+  font-size: 2.3rem;
+}
+
+.post:first-child {
+  margin-top: 0;
+  border-top: none;
+}
+
+.postBody {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.postDate { 
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.deleteButton{
+  width: 150px;
+  height: 48px;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: hsl(0, 97%, 45%);
+  color: white;
+  border: none;
+}
+
+.deleteButton:hover{
+  background-color: hsl(0, 97%, 60%);
+  cursor: pointer;
+}
+
+.editButton{
+  width: 150px;
+  height: 48px;
+  border-radius: 10px;
+  margin-right: 1rem;
+  font-size: 1rem;
+  background-color: hsl(210, 97%, 45%);
+  color: white;
+  border: none;
+}
+
+.editButton:hover{
+  background-color: hsl(210, 97%, 55%);
+  cursor: pointer;
+}
+
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.newPostForm label{
+  margin: 1rem 0 1rem 0;
+}
+
+.newPostForm input[type='text'],
+.newPostForm textarea {
+  display: flex;
+  flex-wrap: nowrap;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  font-size: 1rem;
+  height: 50%;
+  min-height: 48px;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  outline: none;
+}
+
+
+.newPostForm textarea {
+  height: 100px;
+}
+
+.newPostForm button{
+  margin-top: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: hsl(192, 47%, 56%);
+}
+
+.newPostForm button:focus {
+  background-color: hsl(192, 47%, 65%);
+}
+
+.Missing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Missing h2, .PostPage h2,
+.Missing p, .PostPage h2{
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.Missing p a{
+  color: hsl(223, 77%, 48%);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.Missing p a:hover{
+  color: hsla(0, 61%, 50%, 0.849);
+}
+
+.statusMsg {
+  margin-top: 2rem;
 }
